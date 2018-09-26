@@ -27,8 +27,6 @@ def verbing(s):
         result += "ing"
     return result
 
-s = "walking"
-print(verbing(s))
 # E. not_bad
 # Given a string, find the first appearance of the
 # substring 'not' and 'bad'. If the 'bad' follows
@@ -40,22 +38,27 @@ print(verbing(s))
 def not_bad(s):
     result = s
     s_list = s.split(" ")
-    if ("not" not in s_list) or ("bad" not in s_list):
+    if re.search(".*not.*", s) or re.search(".*bad.*", s):
+        print("we are here")
         return result
     else:
         not_idx = [i for i, item in enumerate(s_list) if re.search(".*not.*", item)]
         bad_idx = [i for i, item in enumerate(s_list) if re.search(".*bad.*", item)]
-
         if not_idx[0] > bad_idx[0]:
+            print("we are there")
             return result
         else:
-            print("we are here")
             s_list[not_idx[0]] = "good"
+            print(s_list)
             for i in range(bad_idx[0], not_idx[0], -1):
-                print(result)
                 del s_list[i]
             result = " ".join(s_list)
     return result
+
+test_df = "This dinner is not that bad!"
+print("------------------")
+print(not_bad(test_df))
+print("------------------")
 
 
 # Consider dividing a string into two halves.
