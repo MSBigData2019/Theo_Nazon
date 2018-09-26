@@ -43,13 +43,16 @@ def not_bad(s):
     if ("not" not in s_list) or ("bad" not in s_list):
         return result
     else:
-        not_idx = [i for i, item in enumerate(s_list) if re.search("not", item)]
-        bad_idx = [i for i, item in enumerate(s_list) if re.search("bad", item)]
+        not_idx = [i for i, item in enumerate(s_list) if re.search(".*not.*", item)]
+        bad_idx = [i for i, item in enumerate(s_list) if re.search(".*bad.*", item)]
+
         if not_idx[0] > bad_idx[0]:
             return result
         else:
+            print("we are here")
             s_list[not_idx[0]] = "good"
             for i in range(bad_idx[0], not_idx[0], -1):
+                print(result)
                 del s_list[i]
             result = " ".join(s_list)
     return result

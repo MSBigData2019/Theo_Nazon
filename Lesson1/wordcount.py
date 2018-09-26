@@ -81,7 +81,6 @@ def print_top(filename):
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
 def main():
-    # print(from_file_to_dict("small.txt"))
     sys.argv.append('--topcount')
     sys.argv.append("alice.txt")
     if len(sys.argv) != 3:
