@@ -8,6 +8,8 @@
 
 # Additional basic string exercises
 
+import re
+
 # D. verbing
 # Given a string, if its length is at least 3,
 # add 'ing' to its end.
@@ -41,12 +43,15 @@ def not_bad(s):
     if ("not" not in s_list) or ("bad" not in s_list):
         return result
     else:
-        index_not = s_list.index("not")
-        index_bad = s_list.index("bad")
-        s_list[index_not] = "good"
-        for i in range(index_bad, index_not, -1):
-            del s_list[i]
-        result = " ".join(s_list)
+        not_idx = [i for i, item in enumerate(s_list) if re.search("not", item)]
+        bad_idx = [i for i, item in enumerate(s_list) if re.search("bad", item)]
+        if not_idx[0] > bad_idx[0]:
+            return result
+        else:
+            s_list[not_idx[0]] = "good"
+            for i in range(bad_idx[0], not_idx[0], -1):
+                del s_list[i]
+            result = " ".join(s_list)
     return result
 
 
@@ -60,47 +65,45 @@ def front_back(a, b):
     a_split = string_splitter(a)
     b_split = string_splitter(b)
 
-    return a_split
+    return "".join([a_split[0], b_split[0], a_split[1], b_split[1]])
 
 def string_splitter(s):
     if len(s)%2 == 0:
         s_front = s[0:len(s)//2]
         s_back  = s[len(s)//2:]
     else:
+        s_front = s[0:len(s)//2 + 1]
+        s_back  = s[len(s)//2 + 1:]
+    return (s_front, s_back)
 
-    return s_back
-
-test_a = "abce"
-test_b = "fgij"
-print(front_back(test_a, test_b))
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
-# def test(got, expected):
-#     if got == expected:
-#         prefix = ' OK '
-#     else:
-#         prefix = '  X '
-#     print('%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
+def test(got, expected):
+    if got == expected:
+        prefix = ' OK '
+    else:
+        prefix = '  X '
+    print(('%s got: %s expected: %s') % (prefix, repr(got), repr(expected)))
 
 
 # main() calls the above functions with interesting inputs,
 # using the above test() to check if the result is correct or not.
-# def main():
-#     print('verbing')
-#     test(verbing('hail'), 'hailing')
-#     test(verbing('swiming'), 'swimingly')
-#     test(verbing('do'), 'do')
-#
-#     print('not_bad')
-#     test(not_bad('This movie is not so bad'), 'This movie is good')
-#     test(not_bad('This dinner is not that bad!'), 'This dinner is good!')
-#     test(not_bad('This tea is not hot'), 'This tea is not hot')
-#     test(not_bad("It's bad yet not"), "It's bad yet not")
-#
-#     print('front_back')
-#     test(front_back('abcd', 'xy'), 'abxcdy')
-#     test(front_back('abcde', 'xyz'), 'abcxydez')
-#     test(front_back('Kitten', 'Donut'), 'KitDontenut')
-#
-# if __name__ == '__main__':
-#   main()
+def main():
+    print('verbing')
+    test(verbing('hail'), 'hailing')
+    test(verbing('swiming'), 'swimingly')
+    test(verbing('do'), 'do')
+
+    print('not_bad')
+    test(not_bad('This movie is not so bad'), 'This movie is good')
+    test(not_bad('This dinner is not that bad!'), 'This dinner is good!')
+    test(not_bad('This tea is not hot'), 'This tea is not hot')
+    test(not_bad("It's bad yet not"), "It's bad yet not")
+
+    print('front_back')
+    test(front_back('abcd', 'xy'), 'abxcdy')
+    test(front_back('abcde', 'xyz'), 'abcxydez')
+    test(front_back('Kitten', 'Donut'), 'KitDontenut')
+
+if __name__ == '__main__':
+  main()
