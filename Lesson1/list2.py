@@ -33,9 +33,11 @@ def linear_merge(list1, list2):
     for i in range(len(list1)+len(list2)):
         if pointer_list1 > len(list1)-1:
             result.extend(list2[pointer_list2:])
+            break
         elif pointer_list2 > len(list2)-1:
             result.extend(list1[pointer_list1:])
-        if list1[pointer_list1] < list2[pointer_list2]:
+            break
+        elif list1[pointer_list1] < list2[pointer_list2]:
             result.append(list1[pointer_list1])
             pointer_list1 += 1
         else:
@@ -59,7 +61,7 @@ def test(got, expected):
         prefix = ' OK '
     else:
         prefix = '  X '
-    print('%s got: %s expected: %s') % (prefix, repr(got), repr(expected))
+    print(('%s got: %s expected: %s') % (prefix, repr(got), repr(expected)))
 
 
 # Calls the above functions with interesting inputs.
