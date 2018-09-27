@@ -46,21 +46,21 @@ import sys
 
 
 def mimic_dict(filename):
-    dict = {}
+    dict_output = {}
     previous_word = ''
-    file = open(filename, "r")
-    file_s = file.read()
-    file_string = file_s.split()
-    file.close()
+    file_to_process = open(filename, "r")
+    file_string = file_to_process.read()
+    s_list = file_string.split()
+    file_to_process.close()
 
-    for word in file_string:
-        if previous_word in dict:
-            dict[previous_word].append(word)
+    for word in s_list:
+        if previous_word in dict_output:
+            dict_output[previous_word].append(word)
         else:
-            dict[previous_word] = [word]
+            dict_output[previous_word] = [word]
         previous_word = word
-    print(len(dict))
-    return dict
+    print(len(dict_output))
+    return dict_output
 
 
 def print_mimic(mimic_dict, word):
