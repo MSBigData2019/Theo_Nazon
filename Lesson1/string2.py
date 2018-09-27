@@ -10,6 +10,7 @@
 
 import re
 
+
 # D. verbing
 # Given a string, if its length is at least 3,
 # add 'ing' to its end.
@@ -19,13 +20,11 @@ import re
 # Return the resulting string.
 def verbing(s):
     result = s
-    if len(s) < 3:
-        return result
-    elif s[-3:] == "ing":
-        result += "ly"
-    else:
-        result += "ing"
+    if len(s) >= 3:
+        if s[-3:] == "ing": result += "ly"
+        else: result += "ing"
     return result
+
 
 # E. not_bad
 # Given a string, find the first appearance of the
@@ -36,29 +35,13 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-    result = s
-    s_list = s.split(" ")
-    if re.search(".*not.*", s) or re.search(".*bad.*", s):
-        print("we are here")
-        return result
+    not_idx = s.find("not")
+    bad_idx = s.find("bad")
+    if not_idx == -1 or bad_idx == -1 or bad_idx < not_idx:
+        return s
     else:
-        not_idx = [i for i, item in enumerate(s_list) if re.search(".*not.*", item)]
-        bad_idx = [i for i, item in enumerate(s_list) if re.search(".*bad.*", item)]
-        if not_idx[0] > bad_idx[0]:
-            print("we are there")
-            return result
-        else:
-            s_list[not_idx[0]] = "good"
-            print(s_list)
-            for i in range(bad_idx[0], not_idx[0], -1):
-                del s_list[i]
-            result = " ".join(s_list)
-    return result
-
-test_df = "This dinner is not that bad!"
-print("------------------")
-print(not_bad(test_df))
-print("------------------")
+        s = s[:not_idx] + "good" + s[bad_idx+len("bad"):]
+    return s
 
 
 # Consider dividing a string into two halves.
@@ -70,8 +53,8 @@ print("------------------")
 def front_back(a, b):
     a_split = string_splitter(a)
     b_split = string_splitter(b)
+    return a_split[0] + b_split[0] + a_split[1] + b_split[1]
 
-    return "".join([a_split[0], b_split[0], a_split[1], b_split[1]])
 
 def string_splitter(s):
     if len(s)%2 == 0:
@@ -81,6 +64,7 @@ def string_splitter(s):
         s_front = s[0:len(s)//2 + 1]
         s_back  = s[len(s)//2 + 1:]
     return (s_front, s_back)
+
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
