@@ -51,19 +51,14 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    a_split = string_splitter(a)
-    b_split = string_splitter(b)
-    return a_split[0] + b_split[0] + a_split[1] + b_split[1]
+    middle_a = middle_finder(a)
+    middle_b = middle_finder(b)
+    return a[0:middle_a] + b[0:middle_b] + a[middle_a:] + b[middle_b:]
 
 
-def string_splitter(s):
-    if len(s)%2 == 0:
-        s_front = s[0:len(s)//2]
-        s_back  = s[len(s)//2:]
-    else:
-        s_front = s[0:len(s)//2 + 1]
-        s_back  = s[len(s)//2 + 1:]
-    return (s_front, s_back)
+def middle_finder(s):
+    middle = len(s)//2 if len(s)%2 == 0 else len(s)//2 + 1
+    return middle
 
 
 # Simple provided test() function used in main() to print
