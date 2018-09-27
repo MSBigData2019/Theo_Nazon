@@ -83,6 +83,11 @@ def print_top(filename):
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
 def main():
+<<<<<<< HEAD
+=======
+    sys.argv.append('--topcount')
+    sys.argv.append("alice.txt")
+>>>>>>> 0d9cf7e23ec87f737fa2334f4cd48d7188af1636
     if len(sys.argv) != 3:
         print('usage: ./wordcount.py {--count | --topcount} file')
         sys.exit(1)
