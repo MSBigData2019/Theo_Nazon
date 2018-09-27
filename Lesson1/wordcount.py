@@ -73,11 +73,8 @@ def print_words(filename):
 def print_top(filename):
     result_dict = from_file_to_dict(filename)
     sorted_keys = sorted(result_dict, key=result_dict.get, reverse=True)
-    for key in sorted_keys:
-        print(key, result_dict[key])
-    return None
-
-# n_items = take(n, d.iteritems())
+    for index, key in enumerate(sorted_keys[:20]):
+        print("#" + str(index) + " | " + key + ": " + str(result_dict[key]))
 
 
 # This basic command line argument parsing code is provided and
