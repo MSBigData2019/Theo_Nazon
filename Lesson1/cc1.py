@@ -63,8 +63,11 @@ def number2digits(number):
 #moving it to the end of the word and adding 'ay'
 def pigLatin(text):
     text_list = text.split(" ")
-
-    return
+    translated_text = text_list[0][1:].capitalize() + text_list[0][0].lower() + 'ay '
+    for i in range(1, len(text_list[1:])):
+         translated_text += text_list[i][1:] + text_list[i][0] + 'ay '
+    translated_text += text_list[-1][1:] + text_list[-1][0] + 'ay'
+    return "".join(translated_text)
 
 
 #write fizbuzz programm
