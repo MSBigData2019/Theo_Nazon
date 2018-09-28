@@ -1,4 +1,5 @@
 import unittest
+# -*- coding: utf-8 -*-
 
 
 # Given a string and a non-negative int n, return a larger string
@@ -22,8 +23,11 @@ def array_front9(nums):
 # that a substring length 2 appears  in the string and also as
 # the last 2 chars of the string, so "hixxxhi" yields 1 (we won't count the end substring).
 def last2(string):
-
-    return
+    result = 0
+    for i in range(len(string)-2):
+        if string[-2:] == string[i:i+2]:
+            result += 1
+    return result
 
 #Write a proramm that returna dictionary of occurences of the alphabet for a given string.
 # Test it with the Lorem upsuj
@@ -42,14 +46,10 @@ def occurences(text):
 #Write a program that maps a list of words into a list of
 #integers representing the lengths of the correponding words.
 def length_words(array):
-    result_dict = {}
-    for word in array:
-        lenght = len(word)
-        if length in result_dict.keys():
-            result_dict[length] = [word]
-        else:
-            result_dict[length].append(word)
-    return result_dict
+    result = []
+    for i in range(len(array)):
+        result += [len(array[i])]
+    return result
 
 
 #Write a function that takes a number and returns a list of its digits.
@@ -88,7 +88,7 @@ def fizbuzz():
 
 response = {
   "nhits": 1000,
-  "parameters": {}
+  "parameters": {},
   "records": [
     {
       "datasetid": "les-1000-titres-les-plus-reserves-dans-les-bibliotheques-de-pret",
@@ -120,9 +120,15 @@ response = {
 }
 
 #Given the above response object extract a array of records with columns nombre_de_reservations , auteur and timestamp
+import json
 def flatten():
-    return
-
+    parsed_json = json.loads(response)
+    result_array = []
+    record_1 = parsed_json[records][0]
+    record_2 = parsed_json[records][1]
+    result_array = [record_1["nombre_de_reservations"], record_1["fields"]["auteur"], record_1["record_timestamp"]]
+    result_array.append([record_2["nombre_de_reservations"], record_2["fields"]["auteur"], record_2["record_timestamp"]])
+    return result_array
 
 
 # Here's our "unit tests".
