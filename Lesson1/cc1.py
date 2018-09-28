@@ -46,16 +46,12 @@ def occurences(text):
 #Write a program that maps a list of words into a list of
 #integers representing the lengths of the correponding words.
 def length_words(array):
-    result = []
-    for i in range(len(array)):
-        result += [len(array[i])]
-    return result
+    return map(len, array)
 
 
 #Write a function that takes a number and returns a list of its digits.
 def number2digits(number):
-    result = [int(digit) for digit in str(number)]
-    return result
+    return [int(digit) for digit in str(number)]
 
 
 #Write function that translates a text to Pig Latin and back.
