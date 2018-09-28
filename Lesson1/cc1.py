@@ -46,8 +46,7 @@ def occurences(text):
 #Write a program that maps a list of words into a list of
 #integers representing the lengths of the correponding words.
 def length_words(array):
-    return map(len, array)
-
+    return list(map(len, array))
 
 #Write a function that takes a number and returns a list of its digits.
 def number2digits(number):
@@ -118,15 +117,15 @@ response = {
   ]
 }
 
+
 #Given the above response object extract a array of records with columns nombre_de_reservations , auteur and timestamp
-import json
 def flatten():
-    parsed_json = json.loads(response)
     result_array = []
-    record_1 = parsed_json[records][0]
-    record_2 = parsed_json[records][1]
-    result_array = [record_1["nombre_de_reservations"], record_1["fields"]["auteur"], record_1["record_timestamp"]]
-    result_array.append([record_2["nombre_de_reservations"], record_2["fields"]["auteur"], record_2["record_timestamp"]])
+    for record in response["records"]:
+        computer_record["nombre_de_reservations"] = record["nombre_de_reservations"]
+        computer_record["auteur"] = record["fields"]["auteur"]
+        computer_record["timestamp"] = record["record_timestamp"]
+        result_array.append(computed_record)
     return result_array
 
 
