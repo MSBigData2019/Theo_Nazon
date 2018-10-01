@@ -3,6 +3,7 @@ import unittest
 import numpy as np
 import regex as re
 
+
 # Given a string and a non-negative int n, return a larger string
 # that is n copies of the original string.
 
@@ -24,7 +25,6 @@ def last2(string):
     pattern = string[-2:]
     print(pattern)
     return len(re.findall(pattern, string[:-2], overlapped=True))
-
 
 #Write a proramm that returna dictionary of occurences of the alphabet for a given string.
 # Test it with the Lorem upsuj
@@ -116,6 +116,7 @@ response = {
 
 
 #Given the above response object extract a array of records with columns nombre_de_reservations , auteur and timestamp
+import json
 def flatten():
     results = []
     for record in response['records']:
@@ -126,7 +127,6 @@ def flatten():
       results.append(computed_record)
 
     return results
-
 
 # Here's our "unit tests".
 class Lesson1Tests(unittest.TestCase):
