@@ -1,6 +1,7 @@
 import unittest
 # -*- coding: utf-8 -*-
-
+import numpy as np
+import regex as re
 
 # Given a string and a non-negative int n, return a larger string
 # that is n copies of the original string.
@@ -11,23 +12,19 @@ def string_times(string, n):
 # Given an array of ints, return True if one of the first 4 elements
 # in the array is a 9. The array length may be less than 4.
 def array_front9(nums):
-    result = False
-    length = min(len(nums), 4)
-    for i in range(length):
-        if nums[i] == 9:
-            result = True
-            break
-    return result
+    num_array = np.array(nums)
+    last_index = min(4, len(nums))
+    shorted_array = num_array[:last_index]
+    return np.any(shorted_array[shorted_array == 9])
 
 # Given a string, return the count of the number of times
 # that a substring length 2 appears  in the string and also as
 # the last 2 chars of the string, so "hixxxhi" yields 1 (we won't count the end substring).
 def last2(string):
-    result = 0
-    for i in range(len(string)-2):
-        if string[-2:] == string[i:i+2]:
-            result += 1
-    return result
+    pattern = string[-2:]
+    print(pattern)
+    return len(re.findall(pattern, string[:-2], overlapped=True))
+
 
 #Write a proramm that returna dictionary of occurences of the alphabet for a given string.
 # Test it with the Lorem upsuj
@@ -120,13 +117,15 @@ response = {
 
 #Given the above response object extract a array of records with columns nombre_de_reservations , auteur and timestamp
 def flatten():
-    result_array = []
-    for record in response["records"]:
-        computer_record["nombre_de_reservations"] = record["nombre_de_reservations"]
-        computer_record["auteur"] = record["fields"]["auteur"]
-        computer_record["timestamp"] = record["record_timestamp"]
-        result_array.append(computed_record)
-    return result_array
+    results = []
+    for record in response['records']:
+      computed_record = {}
+      computed_record['timestamp'] = record['record_timestamp']
+      computed_record['auteur'] = record['fields']['auteur']
+      computed_record['nombre_de_reservations'] = record['fields']['nombre_de_reservations']
+      results.append(computed_record)
+
+    return results
 
 
 # Here's our "unit tests".
