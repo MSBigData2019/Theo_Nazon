@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="INF727_TP:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/INF727_TP_jar</output-path>
+    <root id="archive" name="INF727_TP.jar">
+      <element id="module-output" name="INF727_TP" />
+    </root>
+  </artifact>
+</component>
