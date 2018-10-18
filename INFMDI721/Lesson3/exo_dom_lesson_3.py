@@ -47,7 +47,8 @@ def get_repository_ranking(user):
         response_object = get_json_data(user, page_number)
         number_of_repos += 1
         for repo in response_object:
-            star_counter += int(repo['stargazers_count'])
+            print(response_object)
+            star_counter += repo['stargazers_count']
         page_number += 1
 
     if number_of_repos == 0:
@@ -56,21 +57,15 @@ def get_repository_ranking(user):
         return star_counter/number_of_repos
 
 def score_and_rank_contributors(list_of_contributors):
-    dict_contributor = {}
+    rated_contributors = pd.DataFrame(columns=['Contributors', 'Average Stars'])
     print("Building result dictionnary")
     user_number = 0
     for contributor in list_of_contributors:
-        print("Getting information on user number "+ str(user_number))
-        dict_contributor[contributor] = get_repository_ranking(contributor)
+        print("Getting information on user number " + contributor)
+        rated_contributors = rated_contributors.append({"Contributor": contributor, "Average Stars": get_repository_ranking(contributor)}, ignore_index=True)
         user_number += 1
-    df = pd.DataFrame.from_fict(dict_contributor)
-    return df.sort()
+    return rated_contributors.sort_values(['Average Stars'], ascending = False)
 
 
 list_top_contributors = get_top256_commiters()
 print(score_and_rank_contributors(list_top_contributors))
-
-
-
-
-# https://api.github.com/users/octocat/repos
