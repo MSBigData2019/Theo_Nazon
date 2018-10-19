@@ -1,0 +1,12 @@
+Deer 1
+Beer 1
+River 1
+Car 1
+Car 1
+River 1
+Deer 1
+Car 1
+Beer 1
+River 1
+River 1
+Car 1
