@@ -197,9 +197,13 @@ public class MASTER {
 
         MASTER.createSplitsFolder(activeMachineList);
         HashMap<String, List<Integer>> splitsPerMachine = new HashMap<String, List<Integer>>();
+        HashMap<String, List<String>> UMPerMachine = new HashMap<String, List<String>>();
+
+
         splitsPerMachine = MASTER.sendSplitsToMachines(activeMachineList, filesList);
         System.out.println(splitsPerMachine);
-        MASTER.launchSlave(activeMachineList, splitsPerMachine);
+        UMPerMachine = MASTER.launchSlave(activeMachineList, splitsPerMachine);
+        System.out.println(UMPerMachine);
 
     }
 }
