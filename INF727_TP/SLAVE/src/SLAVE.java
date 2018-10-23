@@ -2,10 +2,7 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
+import java.util.*;
 
 
 public class SLAVE {
@@ -36,7 +33,8 @@ public class SLAVE {
 
     public static void maps(String fileName, String fileNumber) throws IOException {
         List<String> lines = readLines_new(fileName);
-        countWords(lines, fileNumber);
+        Set<String> listOfUniqueWords = readAndCountWords(lines, fileNumber);
+        listOfUniqueWords.forEach(t -> System.out.println(t));
     }
 
 
@@ -54,10 +52,11 @@ public class SLAVE {
     }
 
 
-    public static void countWords(List<String> lines, String fileNumber) throws IOException {
-        // Count method - for each word in the String splitted by space,
+    public static Set<String> readAndCountWords(List<String> lines, String fileNumber) throws IOException {
+        // Count method - for each word in the String split by space,
         // if the word trimmed is not empty, or a linebreak, then check if it is in the occurences HashMap
         HashMap<String, Integer> occurences = new HashMap<String, Integer>();
+        Set<String> listOfUniqueWords = new HashSet<String>();
         Integer nb;
         File fout = new File("/tmp/tnazon/maps/UM" + fileNumber + ".txt");
         FileOutputStream fos = new FileOutputStream(fout);
@@ -65,14 +64,16 @@ public class SLAVE {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 
         for (String line : lines) {
-            for (String mot : line.split(" ")) {
-                if (mot.trim() != "" && mot.trim() != "\t") {
-                    bw.write(mot + " " + "1");
+            for (String word : line.split(" ")) {
+                if (word.trim() != "" && word.trim() != "\t") {
+                    listOfUniqueWords.add(word);
+                    bw.write(word + " " + "1");
                     bw.newLine();
                 }
             }
         }
         bw.close();
+        return listOfUniqueWords;
     }
 
 

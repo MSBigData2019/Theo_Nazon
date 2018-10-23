@@ -104,7 +104,7 @@ public class MASTER {
             if (errCode != 0) {
                 System.out.println("Error on launching slave jar: " + output(process.getErrorStream()) + System.getProperty("line.separator"));
             } else {
-                System.out.println(String.format("Success on launching slave jar" + machineName + " is " +output(process.getInputStream())));
+                System.out.println(String.format("Success on launching slave jar" + machineName + " | output is " +output(process.getInputStream())));
                 activeMachineList.add(machineName);
             }
         }
