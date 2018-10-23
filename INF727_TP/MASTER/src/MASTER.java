@@ -66,17 +66,30 @@ public class MASTER {
     }
 
 
-    public static void launchSlave(List<String> machinesList, HashMap<String, List<Integer>> splitsPerMachine) throws IOException, InterruptedException {
+    public static HashMap<String, List<String>> launchSlave(List<String> machinesList, HashMap<String, List<Integer>> splitsPerMachine) throws IOException, InterruptedException {
 
         List<String> activeMachineList = new ArrayList<String>();
         HashMap<String, Process> processMachineList = new HashMap<String, Process>();
+        HashMap<String, List<String>> UMPerMachine = new HashMap<String, List<String>>();
 
         for (String machineName : machinesList) {
             List<Integer> splitsForCurrentMachine = new ArrayList<Integer>();
             splitsForCurrentMachine = splitsPerMachine.get(machineName);
-            for (Integer split : splitsForCurrentMachine) {
+            for (Integer splitNumber : splitsForCurrentMachine) {
                 System.out.println("ON VA LANCER LE JAR");
-                ProcessBuilder pb = new ProcessBuilder("ssh", String.format("tnazon@%s", machineName), "java", "-jar", "/tmp/tnazon/SLAVE.jar", "0", String.format("/tmp/tnazon/splits/S%s.txt", split));
+                ProcessBuilder pb = new ProcessBuilder("ssh", String.format("tnazon@%s", machineName), "java", "-jar", "/tmp/tnazon/SLAVE.jar", "0", String.format("/tmp/tnazon/splits/S%s.txt", splitNumber));
+                // Sub-function //
+                // Generate a HashMap containing the index of the splits copied to the machine, for each machine //
+                List<String> list = new ArrayList<String>();
+                list.add(machineName);
+                String UMName = String.format("UM%s", splitNumber);
+                if (UMPerMachine.containsKey(UMName)) {
+                    UMPerMachine.get(UMName).add(machineName);
+                } else {
+                    UMPerMachine.put(UMName, list);
+                }
+                // End of sub-function //
+
                 pb.redirectErrorStream(true);
                 Process process = pb.start();
                 processMachineList.put(machineName, process);
@@ -95,7 +108,7 @@ public class MASTER {
                 activeMachineList.add(machineName);
             }
         }
-
+        return UMPerMachine;
     }
 
     public static HashMap<String, List<Integer>> sendSplitsToMachines(List<String> machinesList, List<String> filesList) throws IOException, InterruptedException {
@@ -187,5 +200,6 @@ public class MASTER {
         splitsPerMachine = MASTER.sendSplitsToMachines(activeMachineList, filesList);
         System.out.println(splitsPerMachine);
         MASTER.launchSlave(activeMachineList, splitsPerMachine);
+
     }
 }
