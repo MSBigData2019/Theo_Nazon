@@ -75,6 +75,7 @@ public class MASTER {
             List<Integer> splitsForCurrentMachine = new ArrayList<Integer>();
             splitsForCurrentMachine = splitsPerMachine.get(machineName);
             for (Integer split : splitsForCurrentMachine) {
+                System.out.println("ON VA LANCER LE JAR");
                 ProcessBuilder pb = new ProcessBuilder("ssh", String.format("tnazon@%s", machineName), "java", "-jar", "/tmp/tnazon/SLAVE.jar", "0", String.format("/tmp/tnazon/splits/S%s.txt", split));
                 pb.redirectErrorStream(true);
                 Process process = pb.start();
@@ -88,9 +89,9 @@ public class MASTER {
 
             int errCode = process.waitFor();
             if (errCode != 0) {
-                System.out.println("Command execution generated an error of type: " + output(process.getErrorStream()) + System.getProperty("line.separator"));
+                System.out.println("Error on launching slave jar: " + output(process.getErrorStream()) + System.getProperty("line.separator"));
             } else {
-                System.out.println(String.format("Generated output after launching slave on " + machineName + " is " +output(process.getInputStream())));
+                System.out.println(String.format("Success on launching slave jar" + machineName + " is " +output(process.getInputStream())));
                 activeMachineList.add(machineName);
             }
         }
@@ -102,6 +103,7 @@ public class MASTER {
         HashMap<String, List<Integer>> splitsPerMachine = new HashMap<String, List<Integer>>();
         int index = 0;
         int numberOfMachines = machinesList.size();
+        System.out.println("### SENDING SPLITS ###");
 
         for (String file : filesList) {
             int indexOfTargetMachine = index % numberOfMachines;
@@ -120,7 +122,6 @@ public class MASTER {
 
             // Sub-function //
             // Launch the process of copy for the iterated machine //
-            System.out.println("Launching scp command on machine: " + targetMachine);
             ProcessBuilder pb = new ProcessBuilder("scp", "/tmp/tnazon/splits/" + file, String.format("tnazon@%s:/tmp/tnazon/splits", targetMachine));
             pb.redirectErrorStream(true);
             Process process = pb.start();
@@ -137,6 +138,7 @@ public class MASTER {
             System.out.println(output(process.getInputStream()));
         }
 
+        System.out.println("### END - SENDING SPLITS ###");
         return splitsPerMachine;
     }
 
@@ -183,7 +185,7 @@ public class MASTER {
         MASTER.createSplitsFolder(activeMachineList);
         HashMap<String, List<Integer>> splitsPerMachine = new HashMap<String, List<Integer>>();
         splitsPerMachine = MASTER.sendSplitsToMachines(activeMachineList, filesList);
+        System.out.println(splitsPerMachine);
         MASTER.launchSlave(activeMachineList, splitsPerMachine);
     }
-
 }
