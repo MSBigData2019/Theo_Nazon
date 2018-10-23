@@ -8,12 +8,10 @@ import java.util.*;
 public class SLAVE {
 
     public static void mkDirLauncher() throws IOException, InterruptedException {
-        System.out.println("Launching mkdir command on machine: ");
         ProcessBuilder pb = new ProcessBuilder("mkdir", "-p", "/tmp/tnazon/maps");
         pb.redirectErrorStream(true);
         Process process = pb.start();
         process.waitFor();
-        System.out.println("/maps dir created");
     }
 
 
@@ -34,7 +32,7 @@ public class SLAVE {
     public static void maps(String fileName, String fileNumber) throws IOException {
         List<String> lines = readLines_new(fileName);
         Set<String> listOfUniqueWords = readAndCountWords(lines, fileNumber);
-        listOfUniqueWords.forEach(t -> System.out.println(t));
+        System.out.println(listOfUniqueWords);
     }
 
 
@@ -79,7 +77,6 @@ public class SLAVE {
 
     public static void main(String[] args) throws InterruptedException, IOException {
         String fileNumber = args[1].substring(args[1].indexOf("/S") + 2, args[1].indexOf(".txt"));
-        System.out.println(fileNumber);
         SLAVE.mkDirLauncher();
         if (args[0].equals("0")) {
             SLAVE.maps(args[1], fileNumber);

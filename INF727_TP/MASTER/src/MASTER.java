@@ -49,7 +49,7 @@ public class MASTER {
     public static void createSplitsFolder(List<String> machinesList) throws IOException, InterruptedException {
         ArrayList<Process> processList = new ArrayList<Process>();
         for (String machine : machinesList) {
-            System.out.println("Launching mkdir /splits/ command on machine: " + machine);
+//            System.out.println("Launching mkdir /splits/ command on machine: " + machine);
             ProcessBuilder pb = new ProcessBuilder("ssh", String.format("tnazon@%s", machine), "mkdir", "-p", "/tmp/tnazon/splits");
             pb.redirectErrorStream(true);
             Process process = pb.start();
@@ -59,56 +59,81 @@ public class MASTER {
         for (Process process : processList) {
             int errCode = process.waitFor();
             if (errCode != 0) {
-                System.out.println("Unable to create dir /splits on machine : " + output(process.getErrorStream()));
+//                System.out.println("Unable to create dir /splits on machine : " + output(process.getErrorStream()));
             }
-            System.out.println("Execution to create new directory succeeded ");
+//            System.out.println("Execution to create new directory succeeded ");
         }
     }
 
-
     public static HashMap<String, List<String>> launchSlave(List<String> machinesList, HashMap<String, List<Integer>> splitsPerMachine) throws IOException, InterruptedException {
 
-        List<String> activeMachineList = new ArrayList<String>();
-        HashMap<String, Process> processMachineList = new HashMap<String, Process>();
-        HashMap<String, List<String>> UMPerMachine = new HashMap<String, List<String>>();
+        HashMap<String, Process> processList = new HashMap<String, Process>();
+        HashMap<String, List<String>> machinePerUM = new HashMap<String, List<String>>();
+        HashMap<String, List<String>> UMPerWord = new HashMap<String, List<String>>();
+
 
         for (String machineName : machinesList) {
             List<Integer> splitsForCurrentMachine = new ArrayList<Integer>();
             splitsForCurrentMachine = splitsPerMachine.get(machineName);
             for (Integer splitNumber : splitsForCurrentMachine) {
-                System.out.println("ON VA LANCER LE JAR");
                 ProcessBuilder pb = new ProcessBuilder("ssh", String.format("tnazon@%s", machineName), "java", "-jar", "/tmp/tnazon/SLAVE.jar", "0", String.format("/tmp/tnazon/splits/S%s.txt", splitNumber));
                 // Sub-function //
                 // Generate a HashMap containing the index of the splits copied to the machine, for each machine //
+                // FACTORISER //
                 List<String> list = new ArrayList<String>();
                 list.add(machineName);
                 String UMName = String.format("UM%s", splitNumber);
-                if (UMPerMachine.containsKey(UMName)) {
-                    UMPerMachine.get(UMName).add(machineName);
+                if (machinePerUM.containsKey(UMName)) {
+                    machinePerUM.get(UMName).add(machineName);
                 } else {
-                    UMPerMachine.put(UMName, list);
+                    machinePerUM.put(UMName, list);
                 }
                 // End of sub-function //
 
                 pb.redirectErrorStream(true);
                 Process process = pb.start();
-                processMachineList.put(machineName, process);
+                processList.put(UMName, process);
             }
         }
 
-        for (Map.Entry<String, Process> entry : processMachineList.entrySet()) {
-            String machineName = entry.getKey();
+        for (Map.Entry<String, Process> entry : processList.entrySet()) {
+            String UMName = entry.getKey();
             Process process = entry.getValue();
-
+            String inputStream = output(process.getInputStream());
             int errCode = process.waitFor();
+
             if (errCode != 0) {
-                System.out.println("Error on launching slave jar: " + output(process.getErrorStream()) + System.getProperty("line.separator"));
+//                System.out.println("Error on launching slave jar: " + output(process.getErrorStream()) + System.getProperty("line.separator"));
             } else {
-                System.out.println(String.format("Success on launching slave jar" + machineName + " | output is " +output(process.getInputStream())));
-                activeMachineList.add(machineName);
+//                System.out.println(String.format("Success on launching slave jar | output is \n" + inputStream));
+            }
+
+
+            // FACTORISER //
+            for (String word : inputStream.split( "\n")) {
+                List<String> list = new ArrayList<String>();
+                list.add(UMName);
+                if (UMPerWord.containsKey(word)) {
+                    UMPerWord.get(word).add(UMName);
+                } else {
+                    UMPerWord.put(word, list);
+                }
             }
         }
-        return UMPerMachine;
+
+        System.out.println("-----------------");
+        System.out.println("UMs are located in the following machine");
+        System.out.println(machinePerUM);
+
+        System.out.println("-----------------");
+        System.out.println("Words are located in the following UM");
+        System.out.println(UMPerWord);
+
+        System.out.println("####################");
+        System.out.println("MAP PHASED COMPLETED");
+        System.out.println("####################");
+
+        return machinePerUM;
     }
 
     public static HashMap<String, List<Integer>> sendSplitsToMachines(List<String> machinesList, List<String> filesList) throws IOException, InterruptedException {
@@ -146,9 +171,9 @@ public class MASTER {
         for (Process process : processList) {
             int errCode = process.waitFor();
             if (errCode != 0) {
-                System.out.println("Command execution generated an error of type: " + output(process.getErrorStream()));
+//                System.out.println("Command execution generated an error of type: " + output(process.getErrorStream()));
             }
-            System.out.println(output(process.getInputStream()));
+//            System.out.println(output(process.getInputStream()));
         }
 
         System.out.println("### END - SENDING SPLITS ###");
@@ -172,9 +197,9 @@ public class MASTER {
 
             int errCode = process.waitFor();
             if (errCode != 0) {
-                System.out.println("Command execution generated an error of type: " + output(process.getErrorStream()) + System.getProperty("line.separator"));
+//                System.out.println("Command execution generated an error of type: " + output(process.getErrorStream()) + System.getProperty("line.separator"));
             } else {
-                System.out.println("Generated output after calling hostname on is: " + output(process.getInputStream()));
+//                System.out.println("Generated output after calling hostname on is: " + output(process.getInputStream()));
                 if (activeMachineList.size() < numberNodes) {
                     activeMachineList.add(machineName);
                 }
@@ -197,13 +222,13 @@ public class MASTER {
 
         MASTER.createSplitsFolder(activeMachineList);
         HashMap<String, List<Integer>> splitsPerMachine = new HashMap<String, List<Integer>>();
-        HashMap<String, List<String>> UMPerMachine = new HashMap<String, List<String>>();
+        HashMap<String, List<String>> machinePerUM = new HashMap<String, List<String>>();
 
 
         splitsPerMachine = MASTER.sendSplitsToMachines(activeMachineList, filesList);
         System.out.println(splitsPerMachine);
-        UMPerMachine = MASTER.launchSlave(activeMachineList, splitsPerMachine);
-        System.out.println(UMPerMachine);
+        machinePerUM = MASTER.launchSlave(activeMachineList, splitsPerMachine);
+//        System.out.println(machinePerUM);
 
     }
 }

@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="SLAVE:jar" />
+      <artifact name="MASTER:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1e797eb-dfe5-4610-bc9e-946019ee16c4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MASTER/src/MASTER.java" beforeDir="false" afterPath="$PROJECT_DIR$/MASTER/src/MASTER.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SLAVE/src/SLAVE.java" beforeDir="false" afterPath="$PROJECT_DIR$/SLAVE/src/SLAVE.java" afterDir="false" />
     </list>
@@ -21,16 +20,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MASTER/src/MASTER.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="106" column="115" lean-forward="true" selection-start-line="106" selection-start-column="115" selection-end-line="106" selection-end-column="115" />
+            <state relative-caret-position="510">
+              <caret line="40" column="9" lean-forward="true" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2725#2742#0" expanded="true" />
                 <element signature="e#2858#2879#0" expanded="true" />
+                <element signature="e#2900#2922#0" expanded="true" />
                 <element signature="e#2909#2918#0" expanded="true" />
                 <element signature="e#3619#3627#0" expanded="true" />
+                <element signature="e#4919#4927#0" expanded="true" />
                 <element signature="e#5381#5404#0" expanded="true" />
                 <element signature="e#5730#5739#0" expanded="true" />
                 <element signature="e#7722#7746#0" expanded="true" />
@@ -40,14 +42,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SLAVE/src/SLAVE.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="345">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2165#2173#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DEPLOY/src/DEPLOY.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="52" column="47" lean-forward="true" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,18 +85,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DEPLOY/src/DEPLOY.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -101,6 +103,8 @@
       <find>node</find>
       <find>jar</find>
       <find>um</find>
+      <find>generated</find>
+      <find>generate</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -128,16 +132,16 @@
         <option value="$PROJECT_DIR$/WORDCOUNT/src/input.txt" />
         <option value="$PROJECT_DIR$/WORDCOUNT/src/S0.text" />
         <option value="$PROJECT_DIR$/DEPLOY/src/machinesnames.txt" />
-        <option value="$PROJECT_DIR$/MASTER/src/MASTER.java" />
         <option value="$PROJECT_DIR$/SLAVE/src/SLAVE.java" />
+        <option value="$PROJECT_DIR$/MASTER/src/MASTER.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="75" />
-    <option name="y" value="24" />
-    <option name="width" value="928" />
-    <option name="height" value="1056" />
+    <option name="x" value="63" />
+    <option name="y" value="-32" />
+    <option name="width" value="1859" />
+    <option name="height" value="1114" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -238,7 +242,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540287357212" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540298821603" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../INF729_Spark/TP_ParisTech_2018_2019_starter/TP_ParisTech_2017_2018_starter" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -333,7 +337,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.110558316" />
@@ -578,16 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DEPLOY/src/DEPLOY.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/System.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="433">
@@ -595,30 +589,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MASTER/src/MASTER.java">
+    <entry file="file://$PROJECT_DIR$/DEPLOY/src/DEPLOY.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="106" column="115" lean-forward="true" selection-start-line="106" selection-start-column="115" selection-end-line="106" selection-end-column="115" />
+        <state relative-caret-position="780">
+          <caret line="52" column="47" lean-forward="true" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2858#2879#0" expanded="true" />
-            <element signature="e#2909#2918#0" expanded="true" />
-            <element signature="e#3619#3627#0" expanded="true" />
-            <element signature="e#5381#5404#0" expanded="true" />
-            <element signature="e#5730#5739#0" expanded="true" />
-            <element signature="e#7722#7746#0" expanded="true" />
-            <element signature="e#8891#8913#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SLAVE/src/SLAVE.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="345">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2165#2173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MASTER/src/MASTER.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="40" column="9" lean-forward="true" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2725#2742#0" expanded="true" />
+            <element signature="e#2858#2879#0" expanded="true" />
+            <element signature="e#2900#2922#0" expanded="true" />
+            <element signature="e#2909#2918#0" expanded="true" />
+            <element signature="e#3619#3627#0" expanded="true" />
+            <element signature="e#4919#4927#0" expanded="true" />
+            <element signature="e#5381#5404#0" expanded="true" />
+            <element signature="e#5730#5739#0" expanded="true" />
+            <element signature="e#7722#7746#0" expanded="true" />
+            <element signature="e#8891#8913#0" expanded="true" />
           </folding>
         </state>
       </provider>
