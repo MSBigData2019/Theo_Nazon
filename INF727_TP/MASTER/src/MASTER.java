@@ -46,7 +46,7 @@ public class MASTER {
     // ################ SUPPORT END ################ //
     // --------------------------------------------- //
 
-    public static void mkDirLauncher(List<String> machinesList) throws IOException, InterruptedException {
+    public static void createSplitsFolder(List<String> machinesList) throws IOException, InterruptedException {
         ArrayList<Process> processList = new ArrayList<Process>();
         for (String machine : machinesList) {
             System.out.println("Launching mkdir /splits/ command on machine: " + machine);
@@ -66,16 +66,20 @@ public class MASTER {
     }
 
 
-    public static void slaveLauncher(List<String> machinesList) throws IOException, InterruptedException {
+    public static void launchSlave(List<String> machinesList, HashMap<String, List<Integer>> splitsPerMachine) throws IOException, InterruptedException {
 
         List<String> activeMachineList = new ArrayList<String>();
         HashMap<String, Process> processMachineList = new HashMap<String, Process>();
 
         for (String machineName : machinesList) {
-            ProcessBuilder pb = new ProcessBuilder("ssh", String.format("tnazon@%s", machineName), "java", "-jar", "/tmp/tnazon/SLAVE.jar", "0", "/tmp/tnazon/splits/S0.txt");
-            pb.redirectErrorStream(true);
-            Process process = pb.start();
-            processMachineList.put(machineName, process);
+            List<Integer> splitsForCurrentMachine = new ArrayList<Integer>();
+            splitsForCurrentMachine = splitsPerMachine.get(machineName);
+            for (Integer split : splitsForCurrentMachine) {
+                ProcessBuilder pb = new ProcessBuilder("ssh", String.format("tnazon@%s", machineName), "java", "-jar", "/tmp/tnazon/SLAVE.jar", "0", String.format("/tmp/tnazon/splits/S%s.txt", split));
+                pb.redirectErrorStream(true);
+                Process process = pb.start();
+                processMachineList.put(machineName, process);
+            }
         }
 
         for (Map.Entry<String, Process> entry : processMachineList.entrySet()) {
@@ -93,19 +97,36 @@ public class MASTER {
 
     }
 
-    public static void filesTransferLauncher(List<String> machinesList, List<String> filesList) throws IOException, InterruptedException {
+    public static HashMap<String, List<Integer>> sendSplitsToMachines(List<String> machinesList, List<String> filesList) throws IOException, InterruptedException {
         ArrayList<Process> processList = new ArrayList<Process>();
+        HashMap<String, List<Integer>> splitsPerMachine = new HashMap<String, List<Integer>>();
         int index = 0;
         int numberOfMachines = machinesList.size();
+
         for (String file : filesList) {
             int indexOfTargetMachine = index % numberOfMachines;
             String targetMachine = machinesList.get(indexOfTargetMachine);
+
+            // Sub-function //
+            // Generate a HashMap containing the index of the splits copied to the machine, for each machine //
+            List<Integer> list = new ArrayList<Integer>();
+            list.add(index);
+            if (splitsPerMachine.containsKey(targetMachine)) {
+                splitsPerMachine.get(targetMachine).add(index);
+            } else {
+                splitsPerMachine.put(targetMachine, list);
+            }
+            // End of sub-function //
+
+            // Sub-function //
+            // Launch the process of copy for the iterated machine //
             System.out.println("Launching scp command on machine: " + targetMachine);
             ProcessBuilder pb = new ProcessBuilder("scp", "/tmp/tnazon/splits/" + file, String.format("tnazon@%s:/tmp/tnazon/splits", targetMachine));
             pb.redirectErrorStream(true);
             Process process = pb.start();
             processList.add(process);
             index += 1;
+            // End of sub-function//
         }
 
         for (Process process : processList) {
@@ -115,6 +136,8 @@ public class MASTER {
             }
             System.out.println(output(process.getInputStream()));
         }
+
+        return splitsPerMachine;
     }
 
     public static List<String> machineTester(List<String> machinesList, Integer numberNodes) throws IOException, InterruptedException {
@@ -157,9 +180,10 @@ public class MASTER {
 
         List<String> activeMachineList = MASTER.machineTester(machinesList, 3);
 
-        MASTER.mkDirLauncher(activeMachineList);
-        MASTER.filesTransferLauncher(activeMachineList, filesList);
-        MASTER.slaveLauncher(activeMachineList);
+        MASTER.createSplitsFolder(activeMachineList);
+        HashMap<String, List<Integer>> splitsPerMachine = new HashMap<String, List<Integer>>();
+        splitsPerMachine = MASTER.sendSplitsToMachines(activeMachineList, filesList);
+        MASTER.launchSlave(activeMachineList, splitsPerMachine);
     }
 
 }
