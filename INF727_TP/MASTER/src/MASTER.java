@@ -72,9 +72,7 @@ public class MASTER {
         HashMap<String, Process> processMachineList = new HashMap<String, Process>();
 
         for (String machineName : machinesList) {
-            System.out.println("ON EST LA OKLM" + machineName);
             ProcessBuilder pb = new ProcessBuilder("ssh", String.format("tnazon@%s", machineName), "java", "-jar", "/tmp/tnazon/SLAVE.jar", "0", "/tmp/tnazon/splits/S0.txt");
-//            ProcessBuilder pb = new ProcessBuilder("ssh", String.format("tnazon@%s", machineName), "hostname");
             pb.redirectErrorStream(true);
             Process process = pb.start();
             processMachineList.put(machineName, process);

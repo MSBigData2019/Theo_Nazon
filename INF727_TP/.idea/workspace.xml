@@ -8,15 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b1e797eb-dfe5-4610-bc9e-946019ee16c4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DEPLOY/src/machinesnames.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DEPLOY/src/machinesnames.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MASTER/src/MASTER.java" beforeDir="false" afterPath="$PROJECT_DIR$/MASTER/src/MASTER.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SLAVE/src/SLAVE.java" beforeDir="false" afterPath="$PROJECT_DIR$/SLAVE/src/SLAVE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WORDCOUNT/src/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WORDCOUNT/src/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MASTER_jar/MASTER.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MASTER_jar/MASTER.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SLAVE_jar/SLAVE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SLAVE_jar/SLAVE.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MASTER/MASTER.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MASTER/MASTER.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SLAVE/SLAVE.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SLAVE/SLAVE.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MASTER/src/MASTER.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
+            <state relative-caret-position="225">
+              <caret line="81" column="48" lean-forward="true" selection-start-line="81" selection-start-column="48" selection-end-line="81" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SLAVE/src/SLAVE.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+            <state relative-caret-position="540">
+              <caret line="36" column="34" lean-forward="true" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,17 +134,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="INF727_TP" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="WORDCOUNT" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,7 +213,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="INF727_TP" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="WORDCOUNT" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -330,10 +322,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10945274" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.110558316" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -348,7 +340,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29357797" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2864424" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3297414" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.31870428" />
@@ -561,26 +553,6 @@
     <entry file="file://$PROJECT_DIR$/SLAVE/src/UM0.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/MASTER/src/MASTER.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SLAVE/src/SLAVE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WORDCOUNT/src/input.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -599,6 +571,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="17" selection-start-line="17" selection-end-line="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SLAVE/src/SLAVE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="34" lean-forward="true" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MASTER/src/MASTER.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="81" column="48" lean-forward="true" selection-start-line="81" selection-start-column="48" selection-end-line="81" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
