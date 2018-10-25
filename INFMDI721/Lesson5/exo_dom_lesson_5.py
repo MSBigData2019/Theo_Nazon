@@ -6,6 +6,7 @@ import re
 import json
 import pandas as pd
 import time
+import numpy as np
 desired_width = 320
 pd.set_option('display.width', desired_width)
 
@@ -82,7 +83,10 @@ def get_cars_on_sale_info_from_search_page(page_number):
     return list_of_cars_processed
 
 
-def consolidated_info_cars_on_sale():
+def get_consolidated_info_cars_on_sale():
+    print("################")
+    print("Cars on sales scrapping started")
+    print("################")
     consolidated_list_cars = []
     page_number = 1
     limit_reached = False
@@ -96,6 +100,9 @@ def consolidated_info_cars_on_sale():
 
     sales_info = pd.DataFrame(consolidated_list_cars)
     sales_info = format_dataframe(sales_info)
+    print("################")
+    print("Cars on sales scrapping completed")
+    print("################")
     return sales_info
 
 def consolidated_info_cars_on_sale_short():
@@ -107,18 +114,7 @@ def consolidated_info_cars_on_sale_short():
     sales_info = format_dataframe(sales_info)
     return sales_info
 
-#
-# def consolidated_info_cars_on_sale():
-#     url_search = "https://www.lacentrale.fr/listing?makesModelsCommercialNames=RENAULT%3AZOE&regions=FR-IDF%2CFR-PAC%2CFR-NAQ"
-#     soup_search = _create_request_and_generate_soup(url_search)
-#     car_profile_lists = soup_search.find_all(class_ = "adContainer")
-#
-#     list_of_car_profiles_processed = list(map(lambda x : extract_car_info(x), car_profile_lists))
-#     sales_info = pd.DataFrame(list_of_car_profiles_processed)
-#     sales_info.columns = ["model_long", "type_seller", "year", "km", "price", "phone_number", "link"]
-#     return sales_info
-
-dict_of_classes_for_car_profiles = {
+classes_names = {
     "model"             : "version txtGrey7C noBold",
     "type_of_seller"    : "txtBlack typeSeller hiddenPhone",
     "year"              : "fieldYear",
@@ -134,16 +130,16 @@ def get_phone_number(url_suffix):
     return phone_number
 
 
-def extract_info_per_car(car_profile):
+def extract_info_per_car(car):
     info_per_car_format_list = []
 
     # On itere sur la liste des informations a recuperer, que l'on place dans liste
-    for key in dict_of_classes_for_car_profiles.keys():
-        new_element = car_profile.find(class_= dict_of_classes_for_car_profiles[key]).text if car_profile.find(class_= dict_of_classes_for_car_profiles[key]) is not None else "n.a."
+    for key in classes_names.keys():
+        new_element = car.find(class_= classes_names[key]).text if car.find(class_= classes_names[key]) is not None else "n.a."
         info_per_car_format_list.append(new_element)
 
     # Ajout du lien vers l'annonce de la voiture + numero de telephone #
-    url_offer = car_profile.find("a")['href']
+    url_offer = car.find("a")['href']
     info_per_car_format_list.append(get_phone_number(url_offer))
     info_per_car_format_list.append(url_offer)
 
@@ -156,6 +152,7 @@ def format_dataframe(df):
     df["price"] = df["price"].str.replace(r"\D+", "").astype("int64")
     df["km"] = df["km"].str.replace(r"\D+", "").astype("int64")
     df["model"] = df["model_long"].str.split(" ").str[0]
+    df["year"] = df["year"].astype("float")
 
     return df
 
@@ -165,23 +162,33 @@ def format_dataframe(df):
 
 
 def get_argus_df():
+    print("################")
+    print("Initializing Argus scrapping")
+    print("################")
     pd_links = get_links_for_argus()
     df_argus = explode_df(pd_links)
     df_argus = df_argus.apply(extract_price_info, axis=1)
     df_argus["model"] = df_argus.detailed_model.str.split(" ").str.get(0)
     df_argus["quote"].str.replace(" ", "").astype("int64")
 
+    print("################")
+    print("Argus scrapping completed")
+    print("################")
     return df_argus
 
-df_argus = get_argus_df()
-# df_argus["quote"] = df_argus["quote"].str.replace(r"\D+", "").astype("int64")
 
-df_cars_on_sale = consolidated_info_cars_on_sale_short()
+def enrich_and_merge_df(df_argus, df_2_cars_on_sale):
+    df_argus["quote"] = df_argus["quote"].str.replace(r"\D+", "").astype("int64")
+    df_mean = df_argus.groupby(['year', "model"])["quote"].mean()
+    df_mean2 = pd.DataFrame(df_mean.reset_index())
+    df_merged = pd.merge(df_cars_on_sale, df_mean2,  how='left', left_on=['year','model'], right_on = ['year','model'])
+    good_deal = (df_merged["price"] - df_merged["quote"]) < 0
+    df_merged["deal"] = np.where(good_deal, 1, -1)
+
+    return df_merged
 
 
-# df_mean = df_argus.groupby(['year', "model"])["quote"].mean()
-# df_mean.reset_index()
-# df_cars_on_sale = df_cars_on_sale.merge(df_mean,on='model',how='left')
-
-
-print(df_cars_on_sale.head())
+if __name__ == "__main__":
+    df_argus = get_argus_df()
+    df_cars_on_sale = get_consolidated_info_cars_on_sale()
+    enrich_and_merge_df(df_argus, df_cars_on_sale)
