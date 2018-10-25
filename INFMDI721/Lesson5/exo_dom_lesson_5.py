@@ -155,6 +155,7 @@ def format_dataframe(df):
     df["phone_number"] = df["phone_number"].str.replace(r"\D+", "").astype("int64")
     df["price"] = df["price"].str.replace(r"\D+", "").astype("int64")
     df["km"] = df["km"].str.replace(r"\D+", "").astype("int64")
+    df["model"] = df["model_long"].str.split(" ").str[0]
 
     return df
 
@@ -172,6 +173,15 @@ def get_argus_df():
 
     return df_argus
 
+df_argus = get_argus_df()
+# df_argus["quote"] = df_argus["quote"].str.replace(r"\D+", "").astype("int64")
+
 df_cars_on_sale = consolidated_info_cars_on_sale_short()
+
+
+# df_mean = df_argus.groupby(['year', "model"])["quote"].mean()
+# df_mean.reset_index()
+# df_cars_on_sale = df_cars_on_sale.merge(df_mean,on='model',how='left')
+
 
 print(df_cars_on_sale.head())
