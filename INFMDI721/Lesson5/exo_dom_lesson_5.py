@@ -6,6 +6,8 @@ import re
 import json
 import pandas as pd
 import time
+desired_width = 320
+pd.set_option('display.width', desired_width)
 
 url = "https://www.lacentrale.fr/cote-voitures-renault-zoe--2017-.html"
 url_search = "https://www.lacentrale.fr/listing?makesModelsCommercialNames=RENAULT%3AZOE&regions=FR-IDF%2CFR-PAC%2CFR-NAQ"
@@ -59,17 +61,8 @@ def extract_price_info(df):
     df['detailed_model'] = soup.find(class_ = "sizeC clear txtGrey7C sizeC").text.strip()
     df['quote'] = soup.find(class_ = "jsRefinedQuot").text.strip()
     print("Scraping current url " + url)
-    time.sleep(5)
+    time.sleep(4)
     return df
-
-
-# pd_links = get_links_for_argus()
-# test = explode_df(pd_links)
-# test = test.apply(extract_price_info, axis=1)
-# test["model"] = test.detailed_model.str.split(" ").str.get(0)
-# test["quote"].str.replace(" ", "").astype("int64")
-#
-# print(test)
 
 #########################################
 ### ARGUS DATABASE ###
@@ -101,6 +94,15 @@ def consolidated_info_cars_on_sale():
         else :
             limit_reached = True
 
+    sales_info = pd.DataFrame(consolidated_list_cars)
+    sales_info = format_dataframe(sales_info)
+    return sales_info
+
+def consolidated_info_cars_on_sale_short():
+    consolidated_list_cars = []
+    page_number = 1
+    returned_list_from_scrapped_page = get_cars_on_sale_info_from_search_page(page_number)
+    consolidated_list_cars = consolidated_list_cars + returned_list_from_scrapped_page
     sales_info = pd.DataFrame(consolidated_list_cars)
     sales_info = format_dataframe(sales_info)
     return sales_info
@@ -150,11 +152,9 @@ def extract_info_per_car(car_profile):
 
 def format_dataframe(df):
     df.columns = ["model_long", "type_seller", "year", "km", "price", "phone_number", "link"]
-    # df["km"].str.replace(" ", "").str.extract("[0-9]*").astype("int64")
-    df["km"].str.replace(" ", "").str.replace("km", "").astype("int64")
-    # df["price"].str.replace(" ", "").str.extract("[0-9]*").astype("int64")
-    df["price"].str.replace(" ", "").str.replace("€", "").astype("int64")
-    df["phone_number"].str.replace(" ", "")
+    df["phone_number"] = df["phone_number"].str.replace(r"\D+", "").astype("int64")
+    df["price"] = df["price"].str.replace(r"\D+", "").astype("int64")
+    df["km"] = df["km"].str.replace(r"\D+", "").astype("int64")
 
     return df
 
@@ -163,5 +163,15 @@ def format_dataframe(df):
 #########################################
 
 
-df = consolidated_info_cars_on_sale()
-print(df.head())
+def get_argus_df():
+    pd_links = get_links_for_argus()
+    df_argus = explode_df(pd_links)
+    df_argus = df_argus.apply(extract_price_info, axis=1)
+    df_argus["model"] = df_argus.detailed_model.str.split(" ").str.get(0)
+    df_argus["quote"].str.replace(" ", "").astype("int64")
+
+    return df_argus
+
+df_cars_on_sale = consolidated_info_cars_on_sale_short()
+
+print(df_cars_on_sale.head())
