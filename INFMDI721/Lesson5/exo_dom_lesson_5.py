@@ -169,8 +169,7 @@ def get_argus_df():
     df_argus = explode_df(pd_links)
     df_argus = df_argus.apply(extract_price_info, axis=1)
     df_argus["model"] = df_argus.detailed_model.str.split(" ").str.get(0)
-    df_argus["quote"].str.replace(" ", "").astype("int64")
-
+    df_argus["quote"] = df_argus["quote"].str.replace(r"\D+", "").astype("int64")
     print("################")
     print("Argus scrapping completed")
     print("################")
@@ -178,7 +177,6 @@ def get_argus_df():
 
 
 def enrich_and_merge_df(df_argus, df_2_cars_on_sale):
-    df_argus["quote"] = df_argus["quote"].str.replace(r"\D+", "").astype("int64")
     df_mean = df_argus.groupby(['year', "model"])["quote"].mean()
     df_mean2 = pd.DataFrame(df_mean.reset_index())
     df_merged = pd.merge(df_cars_on_sale, df_mean2,  how='left', left_on=['year','model'], right_on = ['year','model'])
@@ -191,4 +189,4 @@ def enrich_and_merge_df(df_argus, df_2_cars_on_sale):
 if __name__ == "__main__":
     df_argus = get_argus_df()
     df_cars_on_sale = get_consolidated_info_cars_on_sale()
-    enrich_and_merge_df(df_argus, df_cars_on_sale)
+    df_merged = enrich_and_merge_df(df_argus, df_cars_on_sale)
