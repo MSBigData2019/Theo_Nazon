@@ -2,34 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f4bfe50-dcd7-4a62-82f5-33e9f80a190e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../INF727_TP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../INF727_TP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../INF727_TP/src/extractToDo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../INF727_TP/src/extractToDo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../INF727_TP/src/tp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../INF727_TP/src/tp.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/sparkProject/Preprocessor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/sparkProject/Preprocessor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/com/sparkProject/Trainer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/sparkProject/Trainer.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.11/TP_ParisTech_2017_2018-assembly-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/TP_ParisTech_2017_2018-assembly-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$anonfun$udfCountry$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$anonfun$udfCountry$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$anonfun$udfCurrency$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$anonfun$udfCurrency$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$anonfun$udfDaysCampaign$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$anonfun$udfDaysCampaign$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$anonfun$udfFinalStatus$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$anonfun$udfFinalStatus$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$anonfun$udfHoursPrepa$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$anonfun$udfHoursPrepa$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$typecreator1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$typecreator1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$typecreator2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$typecreator2$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$typecreator3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$typecreator3$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$typecreator4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$typecreator4$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$typecreator5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$$typecreator5$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Preprocessor$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Trainer$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/com/sparkProject/Trainer$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/assembly/$global/streams/assembly-inputs" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assembly/$global/streams/assembly-inputs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/assembly/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assembly/$global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$anonfun$udfCountry$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$anonfun$udfCountry$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$anonfun$udfCurrency$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$anonfun$udfCurrency$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$anonfun$udfDaysCampaign$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$anonfun$udfDaysCampaign$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$anonfun$udfFinalStatus$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$anonfun$udfFinalStatus$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$anonfun$udfHoursPrepa$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$anonfun$udfHoursPrepa$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$typecreator1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$typecreator1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$typecreator2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$typecreator2$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$typecreator3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$typecreator3$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$typecreator4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$typecreator4$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$typecreator5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$$typecreator5$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Preprocessor$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Trainer$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/assemblyOption/$global/streams/assembly/27ba771bc31d147aaf0773ff3c1284ec679a12ee_dir/com/sparkProject/Trainer$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.11/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.11/output_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.11" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.11" afterDir="false" />
     </list>
@@ -52,11 +58,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/Learning">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
               <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/sparkProject/Trainer.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="53" column="31" lean-forward="true" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+              <folding>
+                <element signature="e#26#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/sparkProject/Preprocessor.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+              <folding>
+                <element signature="e#26#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -70,18 +100,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/scala/com/sparkProject/WordCount.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/com/sparkProject/Trainer.scala" />
         <option value="$PROJECT_DIR$/build_and_submit.sh" />
         <option value="$PROJECT_DIR$/src/main/scala/com/sparkProject/Preprocessor.scala" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/Learning" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/sparkProject/Trainer.scala" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="64" />
-    <option name="y" value="532" />
-    <option name="width" value="1857" />
-    <option name="height" value="1085" />
+    <option name="x" value="88" />
+    <option name="y" value="20" />
+    <option name="width" value="1798" />
+    <option name="height" value="1046" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -101,6 +131,17 @@
               <item name="TP_ParisTech_2017_2018" type="b2602c69:ProjectViewProjectNode" />
               <item name="TP_ParisTech_2017_2018_starter" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TP_ParisTech_2017_2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TP_ParisTech_2017_2018_starter" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="prepared_trainingset" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TP_ParisTech_2017_2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TP_ParisTech_2017_2018_starter" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TP_ParisTech_2017_2018" type="b2602c69:ProjectViewProjectNode" />
@@ -133,6 +174,18 @@
               <item name="TP_ParisTech_2017_2018_starter" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="TP_ParisTech_2017_2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TP_ParisTech_2017_2018_starter" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="scala-2.11" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TP_ParisTech_2017_2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TP_ParisTech_2017_2018_starter" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="streams" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -141,7 +194,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538914756339" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540467987240" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -157,15 +210,43 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Trainer">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Preprocessor$" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sparkProject.Preprocessor$" />
+      <module name="TP_ParisTech_2017_2018" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sparkProject.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Preprocessor" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.sparkProject.Preprocessor" />
+      <module name="TP_ParisTech_2017_2018" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sparkProject.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Trainer" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.sparkProject.Trainer" />
       <module name="TP_ParisTech_2017_2018" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -209,6 +290,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Trainer" />
+        <item itemvalue="Application.Preprocessor$" />
         <item itemvalue="Application.Preprocessor" />
       </list>
     </recent_temporary>
@@ -278,30 +361,31 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" id="Learn" visible="true" weight="0.16030957" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.31022727" />
-      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13653952" />
+      <window_info id="Structure" order="1" weight="0.2498618" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Nl-Palette" order="7" />
+      <window_info id="Learn" order="8" weight="0.16196793" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32938644" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31906217" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.36572623" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3761468" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="10" />
       <window_info anchor="bottom" id="Build" order="11" />
       <window_info anchor="bottom" id="SBT Execute" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32983193" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -354,16 +438,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/sparkProject/Trainer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
-          <folding>
-            <element signature="e#26#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build_and_submit.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -381,20 +455,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/Learning">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/sparkProject/Preprocessor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="186" selection-start-line="186" selection-end-line="186" />
+        <state relative-caret-position="253">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
           <folding>
             <element signature="e#26#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/Learning">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/sparkProject/Trainer.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+        <state relative-caret-position="363">
+          <caret line="53" column="31" lean-forward="true" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+          <folding>
+            <element signature="e#26#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

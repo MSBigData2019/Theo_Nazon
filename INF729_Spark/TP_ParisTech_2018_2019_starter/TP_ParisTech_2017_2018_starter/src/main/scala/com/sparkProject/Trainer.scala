@@ -2,6 +2,8 @@ package com.sparkProject
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.ml.feature.{RegexTokenizer, StopWordsRemover, CountVectorizer, CountVectorizerModel}
+
 
 
 object Trainer {
@@ -37,8 +39,23 @@ object Trainer {
       *       - Sauvegarder le pipeline entraîné
       *
       *       if problems with unimported modules => sbt plugins update
-      *
       ********************************************************************************/
+
+    val parquetFileDF = spark.read.parquet("/home/theo/Documents/MASTER/Theo_Nazon/INF729_Spark/TP_ParisTech_2018_2019_starter/TP_ParisTech_2017_2018_starter/data/prepared_trainingset")
+    parquetFileDF.printSchema()
+    print(parquetFileDF.head())
+
+    val tokenizer = new RegexTokenizer().setPattern("\\W+").setGaps(true).setInputCol("text").setOutputCol("tokens")
+
+    StopWordsRemover.loadDefaultStopWords("english")
+
+    val remover = new StopWordsRemover()
+      .setInputCol("tokens")
+      .setOutputCol("filtered")
+
+    val cvm = new CountVectorizerModel(Array("a", "b", "c"))
+      .setInputCol("filtered")
+      .setOutputCol("features")
 
     println("hello world ! from Trainer")
 
