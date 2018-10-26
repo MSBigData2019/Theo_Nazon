@@ -9,7 +9,7 @@
     <list default="true" id="b1e797eb-dfe5-4610-bc9e-946019ee16c4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SLAVE/src/SLAVE.java" beforeDir="false" afterPath="$PROJECT_DIR$/SLAVE/src/SLAVE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASTER/src/MASTER.java" beforeDir="false" afterPath="$PROJECT_DIR$/MASTER/src/MASTER.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../INF729_Spark/TP_ParisTech_2018_2019_starter/TP_ParisTech_2017_2018_starter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../INF729_Spark/TP_ParisTech_2018_2019_starter/TP_ParisTech_2017_2018_starter/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,26 +21,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MASTER/src/MASTER.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="52" column="93" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="93" />
+            <state relative-caret-position="243">
+              <caret line="91" column="94" selection-start-line="91" selection-start-column="94" selection-end-line="91" selection-end-column="94" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3346#3362#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SLAVE/src/SLAVE.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1913">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="390">
+              <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1942#1950#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DEPLOY/src/DEPLOY.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
+            <state relative-caret-position="765">
               <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -97,6 +97,7 @@
       <find>generated</find>
       <find>generate</find>
       <find>mkDir</find>
+      <find>schema</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,16 +125,16 @@
         <option value="$PROJECT_DIR$/WORDCOUNT/src/input.txt" />
         <option value="$PROJECT_DIR$/WORDCOUNT/src/S0.text" />
         <option value="$PROJECT_DIR$/DEPLOY/src/machinesnames.txt" />
-        <option value="$PROJECT_DIR$/MASTER/src/MASTER.java" />
         <option value="$PROJECT_DIR$/SLAVE/src/SLAVE.java" />
+        <option value="$PROJECT_DIR$/MASTER/src/MASTER.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="63" />
-    <option name="y" value="-32" />
-    <option name="width" value="1859" />
-    <option name="height" value="1114" />
+    <option name="x" value="64" />
+    <option name="y" value="-14" />
+    <option name="width" value="1857" />
+    <option name="height" value="1085" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -141,6 +142,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="INF727_TP" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="WORDCOUNT" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -219,27 +232,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="INF727_TP" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="WORDCOUNT" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540497883656" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540548533417" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../INF729_Spark/TP_ParisTech_2018_2019_starter/TP_ParisTech_2017_2018_starter" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -343,7 +344,7 @@
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11498065" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11719182" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -351,19 +352,19 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Learn" order="7" />
-      <window_info anchor="bottom" id="Regex" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3297414" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.34796238" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34760448" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39916405" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.26605505" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.25382262" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3297414" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.31870428" />
       <window_info anchor="bottom" id="SBT Execute" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Regex" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.2498618" />
@@ -579,6 +580,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MASTER/src/MASTER.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="91" column="94" selection-start-line="91" selection-start-column="94" selection-end-line="91" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3346#3362#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SLAVE/src/SLAVE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DEPLOY/src/DEPLOY.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WORDCOUNT/src/input.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -590,37 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DEPLOY/src/DEPLOY.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MASTER/src/MASTER.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="52" column="93" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SLAVE/src/SLAVE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1913">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1942#1950#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

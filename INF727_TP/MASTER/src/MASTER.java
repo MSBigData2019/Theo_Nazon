@@ -1,9 +1,7 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class MASTER {
 
@@ -65,11 +63,100 @@ public class MASTER {
         }
     }
 
+    public static void copyUMToSlave() {
+
+    }
+
+    // For a given list of {UM, Machine_1}, reverse the list
+    public static Map<String, List<String>> reverseMap(Map<String, List<String>> machinePerUM) {
+//        Map<String, List<String>> reversed = new HashMap<>();
+
+        Map<String, List<String>> UMPerMachine = new HashMap<>();
+
+        for(Map.Entry<String, List<String>> entry : machinePerUM.entrySet()){
+            List<String> list = entry.getValue();
+            for(String obj : list){
+                if(UMPerMachine.containsKey(obj)){
+                    UMPerMachine.get(obj).add(entry.getKey());
+                }else{
+                    UMPerMachine.put(obj, new ArrayList<String>(Arrays.asList(new String[]{entry.getKey()})));
+                }
+            }
+        }
+        return UMPerMachine;
+    }
+
+    // Goal : get a Map of the formt {Machine, UM} listing the UM to be copied to the given Machine for the
+    // shuffle Phase --> output is the schemaUMPerMachine
+
+    /// REVOIR POUR OUTPUTTER LE SCHEMA GLBOAL ET AJOUTER UN E FONCTION QUI FAIT LA DIFFERNEE 
+    public static Map<String, List<String>> getListOfCopyToPerform(HashMap<String, List<String>> UMPerKey, HashMap<String, List<String>> machinePerUM) {
+        Map<String, List<String>> schemaUMPerMachine = new HashMap<String, List<String>>();
+
+
+
+
+        Map<String, String> keyTargetMachine = new HashMap<String, String>();
+
+
+        Map<String, List<String>> UMPerMachine = reverseMap(machinePerUM);
+
+        Iterator it = UMPerKey.entrySet().iterator();
+        for(Map.Entry<String, List<String>> pair : UMPerKey.entrySet()){
+
+
+
+            String key = pair.getKey();
+
+            String targetMachine = new String();
+            // Si la machine de l'indexe UM[0] corrreposndant a la cle n'est pas dans le schema, alors on peut choisir cette machine comme la target
+            // Sinon, on prend la machine correspondant a lindex UM[1]
+            //
+
+            // key = Car
+            List<String> listUMs = pair.getValue();
+
+            // Selectionne la target machine
+            for (String UM : listUMs) {
+                if (schemaUMPerMachine.get(machinePerUM.get(UM)) == null) {
+                    targetMachine = machinePerUM.get(UM);
+                    break;
+                }
+            }
+            if (key == "Beer") {
+                targetMachine = "C45-06";
+            }
+            keyTargetMachine.put(key, targetMachine);
+            System.out.println(String.format("For key %s, the target machine is %s", key, targetMachine));
+
+            for (String UM : listUMs) {
+
+                boolean UMAlreadyOnTargetMachine = UMPerMachine.get(targetMachine) == UM;
+
+
+                List<String> listOfCurrentUMToBeCopied = schemaUMPerMachine.get(targetMachine);
+                boolean UMAlreadyListedForCopyOnTargetMachine = Optional.ofNullable(listOfCurrentUMToBeCopied)
+                        .map(l -> l.stream().anyMatch(s -> s.contains(UM)))
+                        .orElse(false);
+                if (!(UMAlreadyListedForCopyOnTargetMachine || UMAlreadyOnTargetMachine)) {
+                    List<String> listOfNewUMToBeCopied = new ArrayList<>();
+                    listOfNewUMToBeCopied.add(UM);
+                    schemaUMPerMachine.put(targetMachine, listOfNewUMToBeCopied);
+                }
+            }
+        }
+        return schemaUMPerMachine;
+    }
+
+
+
+
+
     public static HashMap<String, List<String>> launchSlave(List<String> machinesList, HashMap<String, List<Integer>> splitsPerMachine) throws IOException, InterruptedException {
 
         HashMap<String, Process> processList = new HashMap<String, Process>();
         HashMap<String, List<String>> machinePerUM = new HashMap<String, List<String>>();
-        HashMap<String, List<String>> UMPerWord = new HashMap<String, List<String>>();
+        HashMap<String, List<String>> UMPerKey = new HashMap<String, List<String>>();
 
 
         for (String machineName : machinesList) {
@@ -113,10 +200,10 @@ public class MASTER {
             for (String word : inputStream.split( "\n")) {
                 List<String> list = new ArrayList<String>();
                 list.add(UMName);
-                if (UMPerWord.containsKey(word)) {
-                    UMPerWord.get(word).add(UMName);
+                if (UMPerKey.containsKey(word)) {
+                    UMPerKey.get(word).add(UMName);
                 } else {
-                    UMPerWord.put(word, list);
+                    UMPerKey.put(word, list);
                 }
             }
         }
@@ -127,7 +214,7 @@ public class MASTER {
 
         System.out.println("-----------------");
         System.out.println("Words are located in the following UM");
-        System.out.println(UMPerWord);
+        System.out.println(UMPerKey);
 
         System.out.println("####################");
         System.out.println("MAP PHASED COMPLETED");
@@ -212,23 +299,61 @@ public class MASTER {
 
     public static void main(String[] args) throws InterruptedException,
             IOException {
-        List<String> machinesList = MASTER.sourceReader("/tmp/tnazon/machinesnames.txt");
-        List<String> filesList = new ArrayList<String>();
-        filesList.add("S0.txt");
-        filesList.add("S1.txt");
-        filesList.add("S2.txt");
+//        List<String> machinesList = MASTER.sourceReader("/tmp/tnazon/machinesnames.txt");
+//        List<String> filesList = new ArrayList<String>();
+//        filesList.add("S0.txt");
+//        filesList.add("S1.txt");
+//        filesList.add("S2.txt");
+//
+//        List<String> activeMachineList = MASTER.machineTester(machinesList, 3);
 
-        List<String> activeMachineList = MASTER.machineTester(machinesList, 3);
-
-        MASTER.createSplitsFolder(activeMachineList);
-        HashMap<String, List<Integer>> splitsPerMachine = new HashMap<String, List<Integer>>();
-        HashMap<String, List<String>> machinePerUM = new HashMap<String, List<String>>();
+//        MASTER.createSplitsFolder(activeMachineList);
+//        HashMap<String, List<Integer>> splitsPerMachine = new HashMap<String, List<Integer>>();
+//        HashMap<String, List<String>> machinePerUM = new HashMap<String, List<String>>();
 
 
-        splitsPerMachine = MASTER.sendSplitsToMachines(activeMachineList, filesList);
-        System.out.println(splitsPerMachine);
-        machinePerUM = MASTER.launchSlave(activeMachineList, splitsPerMachine);
+//        splitsPerMachine = MASTER.sendSplitsToMachines(activeMachineList, filesList);
+//        System.out.println(splitsPerMachine);
+//        machinePerUM = MASTER.launchSlave(activeMachineList, splitsPerMachine);
 //        System.out.println(machinePerUM);
 
-    }
+
+        HashMap<String, List<String>> UMPerKey = new HashMap<String, List<String>>();
+        List<String> car = new ArrayList<>();
+        car.add("UM1");
+        car.add("UM2");
+        List<String> beer = new ArrayList<>();
+        beer.add("UM0");
+        beer.add("UM2");
+        List<String> deer = new ArrayList<>();
+        deer.add("UM0");
+
+        deer.add("UM2");
+        List<String> river = new ArrayList<>();
+        river.add("UM0");
+        river.add("UM1");
+
+        UMPerKey.put("Car", car);
+        UMPerKey.put("River", river);
+        UMPerKey.put("Beer", beer);
+        UMPerKey.put("Deer", deer);
+        System.out.println(UMPerKey);
+
+
+        HashMap<String, List<String>> machinePerUM = new HashMap<>();
+        List<String> machine = new ArrayList<>();
+        machine.add("C45-01");
+        List<String> machine2 = new ArrayList<>();
+        machine.add("C45-03");
+        List<String> machine3 = new ArrayList<>();
+        machine.add("C45-06");
+        machinePerUM.put("UM0", machine);
+        machinePerUM.put("UM1", machine2);
+        machinePerUM.put("UM2", machine3);
+
+        Map<String, List<String>> bla = getListOfCopyToPerform(UMPerKey, machinePerUM);
+
+        System.out.println(bla);
+
+        }
 }
